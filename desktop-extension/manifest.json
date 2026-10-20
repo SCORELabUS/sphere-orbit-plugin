@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "sphere",
   "display_name": "SPHERE",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Work with SPHERE from Claude: organizations, members, permissions, pricings, collections, notifications and profile. Every change is proposed as a plan you confirm in SPHERE.",
   "long_description": "Connects Claude to SPHERE's MCP server with your own API key. Claude reads your organizations, members, permissions, pricings and collections, and proposes changes as plans that wait in SPHERE until you review and confirm them there. The key is stored in your system's secure credential store.",
   "author": {
