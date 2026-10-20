@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "sphere",
+  "displayName": "SPHERE",
+  "version": "0.2.0",
+  "description": "Work with SPHERE from Claude Code: organizations, members, permissions, pricings, collections, notifications and profile. Every change is proposed as a plan you confirm in SPHERE.",
+  "author": {
+    "name": "SCORE Lab",
+    "url": "https://github.com/SCORELabUS"
+  },
+  "homepage": "https://github.com/SCORELabUS/sphere-orbit-plugin#readme",
+  "repository": "https://github.com/SCORELabUS/sphere-orbit-plugin",
+  "license": "MIT",
+  "keywords": ["sphere", "mcp", "saas", "pricing", "organizations", "collections"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "SPHERE API key",
+      "description": "Create one in SPHERE > API keys. Use a dedicated key with the narrowest scopes and an expiry date. It is stored in your system's secure credential store.",
+      "required": true,
+      "sensitive": true
+    },
+    "server_url": {
+      "type": "string",
+      "title": "SPHERE URL",
+      "description": "Address of the SPHERE instance, without a trailing slash. Change it only for a self-hosted or local SPHERE, such as http://localhost:5173.",
+      "default": "https://sphere.score.us.es"
+    }
+  },
+  "mcpServers": {
+    "sphere": {
+      "type": "http",
+      "url": "${user_config.server_url}/api/v1/orbit/mcp",
+      "headers": {
+        "x-api-key": "${user_config.api_key}"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "sphere-plugins",
+  "description": "Plugins that connect Claude Code to SPHERE",
+  "owner": {
+    "name": "SCORE Lab",
+    "url": "https://github.com/SCORELabUS"
+  },
+  "plugins": [
+    {
+      "name": "sphere",
+      "source": "./plugins/sphere",
+      "description": "Manage SPHERE organizations, members, permissions, pricings and collections from Claude Code. Changes are proposed as plans you confirm in SPHERE.",
+      "category": "productivity"
+    }
+  ]
+}
