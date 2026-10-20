@@ -1,0 +1,57 @@
+{
+  "manifest_version": "0.3",
+  "name": "sphere",
+  "display_name": "SPHERE",
+  "version": "0.1.0",
+  "description": "Work with SPHERE from Claude: organizations, members, permissions, pricings, collections, notifications and profile. Every change is proposed as a plan you confirm in SPHERE.",
+  "long_description": "Connects Claude to SPHERE's MCP server with your own API key. Claude reads your organizations, members, permissions, pricings and collections, and proposes changes as plans that wait in SPHERE until you review and confirm them there. The key is stored in your system's secure credential store.",
+  "author": {
+    "name": "SCORE Lab",
+    "url": "https://github.com/SCORELabUS"
+  },
+  "homepage": "https://github.com/SCORELabUS/sphere-orbit-plugin#readme",
+  "documentation": "https://github.com/SCORELabUS/sphere-orbit-plugin#readme",
+  "support": "https://github.com/SCORELabUS/sphere-orbit-plugin/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SCORELabUS/sphere-orbit-plugin"
+  },
+  "license": "MIT",
+  "keywords": ["sphere", "mcp", "saas", "pricing", "organizations", "collections"],
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "SPHERE_URL": "${user_config.server_url}",
+        "SPHERE_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools_generated": true,
+  "user_config": {
+    "server_url": {
+      "type": "string",
+      "title": "SPHERE URL",
+      "description": "Address of the SPHERE instance, without a trailing slash. Change it only for a self-hosted or local SPHERE, such as http://localhost:5173.",
+      "default": "https://sphere.score.us.es",
+      "required": true
+    },
+    "api_key": {
+      "type": "string",
+      "title": "SPHERE API key",
+      "description": "Create one in SPHERE > API keys. Use a dedicated key with the narrowest scopes and an expiry date.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
