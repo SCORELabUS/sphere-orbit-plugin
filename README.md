@@ -31,28 +31,14 @@ You need [Claude Desktop](https://claude.ai/download) and a SPHERE account.
 
 Never paste the key into a conversation with Claude. See [SECURITY.md](SECURITY.md).
 
-### 2. Get the extension
+### 2. Download the extension
 
-Either download `sphere.mcpb` from the [latest release](https://github.com/SCORELabUS/sphere-orbit-plugin/releases/latest), or build it locally. Building needs [Node.js](https://nodejs.org) 18 or later:
-
-```bash
-git clone https://github.com/SCORELabUS/sphere-orbit-plugin.git
-```
-
-```bash
-cd sphere-orbit-plugin
-```
-
-```bash
-./scripts/build-extension.sh
-```
-
-The file is created at `dist/sphere.mcpb`.
+Download `sphere.mcpb` from the [latest release](https://github.com/SCORELabUS/sphere-orbit-plugin/releases/latest).
 
 ### 3. Install it in Claude Desktop
 
 1. Open Claude Desktop and go to **Settings > Extensions**.
-2. Drag `sphere.mcpb` into the window (or double-click the file) and confirm the installation.
+2. Drag the downloaded `sphere.mcpb` into the window and confirm the installation.
 3. Fill in the form:
    - **SPHERE URL**: `https://sphere.score.us.es` by default. For a local SPHERE started with `pnpm run dev`, use `http://localhost:5173`.
    - **SPHERE API key**: the key you created. It is stored in your system's secure credential store.
