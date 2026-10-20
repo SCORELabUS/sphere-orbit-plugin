@@ -29,3 +29,18 @@ jobs:
 
       - name: Build the extension
         run: ./scripts/build-extension.sh
+
+      - name: Validate Claude Code plugin
+        run: npx -y @anthropic-ai/claude-code@2.1.299 plugin validate --strict ./plugins/sphere
+
+      - name: Validate Claude Code marketplace
+        run: npx -y @anthropic-ai/claude-code@2.1.299 plugin validate --strict .
+
+      - name: Check that the extension and the plugin share the version
+        run: |
+          extension=$(python3 -c "import json; print(json.load(open('desktop-extension/manifest.json'))['version'])")
+          plugin=$(python3 -c "import json; print(json.load(open('plugins/sphere/.claude-plugin/plugin.json'))['version'])")
+          if [ "$extension" != "$plugin" ]; then
+            echo "Version mismatch: extension $extension, plugin $plugin"
+            exit 1
+          fi
